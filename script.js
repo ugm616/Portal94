@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     async function fetchFile(path, type) {
-        const repo = 'ugm616/your-repo-name'; // Update with your repo name
+        const repo = 'ugm616/Portal94'; // Update with your repo name
         const filePath = path.replace('B:/', '');
 
         try {
