@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const fileSystem = {
         'B:/': {
-            'Documents': {},
-            'Pictures': {},
-            'Music': {},
+            'Documents': 'folder',
+            'Pictures': 'folder',
+            'Music': 'folder',
             'Notes.txt': 'text',
             'Image.jpg': 'image',
             'Audio.wav': 'audio'
@@ -24,6 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
         'B:/Music': {}
     };
 
+    const icons = {
+        folder: 'https://raw.githubusercontent.com/trapd00r/win95-winxp_icons/master/icons/Folder%20(1).ico',
+        text: 'https://raw.githubusercontent.com/trapd00r/win95-winxp_icons/master/icons/File%20Text.ico',
+        image: 'https://raw.githubusercontent.com/trapd00r/win95-winxp_icons/master/icons/Image.ico',
+        audio: 'https://raw.githubusercontent.com/trapd00r/win95-winxp_icons/master/icons/Audio.ico',
+        default: 'https://raw.githubusercontent.com/trapd00r/win95-winxp_icons/master/icons/File.ico'
+    };
+
     function updateFileList(path) {
         currentPath.textContent = path;
         fileList.innerHTML = '';
@@ -31,20 +39,28 @@ document.addEventListener('DOMContentLoaded', function() {
         const entries = Object.entries(fileSystem[path]);
         entries.forEach(([name, type]) => {
             const li = document.createElement('li');
-            li.textContent = name;
             li.dataset.path = `${path}/${name}`;
-            li.dataset.isDirectory = type === 'object';
+            li.dataset.isDirectory = type === 'folder';
             li.dataset.type = type;
+
+            const icon = document.createElement('img');
+            icon.src = icons[type] || icons.default;
+            li.appendChild(icon);
+
+            const text = document.createElement('span');
+            text.textContent = name;
+            li.appendChild(text);
+
             fileList.appendChild(li);
         });
     }
 
     fileList.addEventListener('click', function(event) {
-        const li = event.target;
-        if (li.dataset.isDirectory === 'true') {
+        const li = event.target.closest('li');
+        if (li && li.dataset.isDirectory === 'true') {
             currentDirectory = li.dataset.path;
             updateFileList(currentDirectory);
-        } else {
+        } else if (li) {
             fetchFile(li.dataset.path, li.dataset.type);
         }
     });
@@ -104,4 +120,6 @@ document.addEventListener('DOMContentLoaded', function() {
             fileContent.appendChild(audio);
         }
     }
+
+    updateFileList(currentDirectory);
 });
