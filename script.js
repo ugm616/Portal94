@@ -2,8 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const fileManager = document.getElementById('file-manager');
     const fileList = document.getElementById('file-list');
     const backButton = document.getElementById('back-button');
+    const closeButton = document.getElementById('close-button');
     const currentPath = document.getElementById('current-path');
     const fileContent = document.getElementById('file-content');
+    const fileManagerIcon = document.getElementById('file-manager-icon');
 
     const rootPath = 'B:/';
     let currentDirectory = rootPath;
@@ -59,8 +61,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    closeButton.addEventListener('click', function() {
+        fileManager.classList.add('hidden');
+    });
+
+    fileManagerIcon.addEventListener('click', function() {
+        fileManager.classList.remove('hidden');
+        updateFileList(currentDirectory);
+    });
+
     async function fetchFile(path, type) {
-        const repo = 'ugm616/Portal64'; // Update with your repo name
+        const repo = 'ugm616/your-repo-name'; // Update with your repo name
         const filePath = path.replace('B:/', '');
 
         try {
@@ -93,6 +104,4 @@ document.addEventListener('DOMContentLoaded', function() {
             fileContent.appendChild(audio);
         }
     }
-
-    updateFileList(currentDirectory);
 });
