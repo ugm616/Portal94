@@ -8,11 +8,17 @@
 </head>
 <body>
     <div id="desktop">
-        <!-- File Manager -->
-        <div id="file-manager">
+        <!-- File Manager Icon -->
+        <div class="icon" id="file-manager-icon">
+            <img src="icon.png" alt="File Manager Icon">
+            <span>File Manager</span>
+        </div>
+        <!-- Hidden File Manager Portal -->
+        <div id="file-manager" class="portal hidden">
             <div id="file-manager-header">
                 <button id="back-button">Back</button>
                 <span id="current-path">B:/</span>
+                <button id="close-button">Close</button>
             </div>
             <ul id="file-list"></ul>
         </div>
