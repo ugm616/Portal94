@@ -10,6 +10,9 @@ body {
 #desktop {
     flex-grow: 1;
     position: relative;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 #taskbar {
@@ -18,4 +21,63 @@ body {
     display: flex;
     align-items: center;
     padding: 0 10px;
+}
+
+.icon {
+    width: 80px;
+    height: 100px;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.icon img {
+    width: 48px;
+    height: 48px;
+}
+
+.portal {
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    top: 50px;
+    left: 50px;
+}
+
+.hidden {
+    display: none;
+}
+
+#file-manager-header {
+    background-color: #C0C0C0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#file-manager-header button {
+    padding: 5px 10px;
+}
+
+#file-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#file-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#file-list li:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
 }
