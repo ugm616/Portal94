@@ -25,11 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const icons = {
-        folder: 'https://raw.githubusercontent.com/trapd00r/win95-winxp_icons/master/icons/Folder%20(1).ico',
-        text: 'https://raw.githubusercontent.com/trapd00r/win95-winxp_icons/master/icons/File%20Text.ico',
-        image: 'https://raw.githubusercontent.com/trapd00r/win95-winxp_icons/master/icons/Image.ico',
-        audio: 'https://raw.githubusercontent.com/trapd00r/win95-winxp_icons/master/icons/Audio.ico',
-        default: 'https://raw.githubusercontent.com/trapd00r/win95-winxp_icons/master/icons/File.ico'
+        folder: 'https://raw.githubusercontent.com/trapd00r/win95-winxp_icons/refs/heads/master/icons/w2k_folder_closed.ico',
+        text: 'https://raw.githubusercontent.com/trapd00r/win95-winxp_icons/refs/heads/master/icons/w2k_text_file.ico',
+        image: 'https://raw.githubusercontent.com/trapd00r/win95-winxp_icons/refs/heads/master/icons/w2k_paint.ico',
+        audio: 'https://raw.githubusercontent.com/trapd00r/win95-winxp_icons/refs/heads/master/icons/w2k_cd_audio.ico',
+        default: 'https://raw.githubusercontent.com/trapd00r/win95-winxp_icons/refs/heads/master/icons/w2k_floppy.ico'
     };
 
     function updateFileList(path) {
